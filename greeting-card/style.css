@@ -1,6 +1,13 @@
-/* ==========================
-   GOOGLE RESET
-========================== */
+/* ==========================================
+   BIRTHDAY WEBSITE - STYLE.CSS
+   PART 1
+========================================== */
+
+/* Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* Reset */
+
 *{
     margin:0;
     padding:0;
@@ -8,30 +15,54 @@
     font-family:'Poppins',sans-serif;
 }
 
+/* Body */
+
 body{
-    overflow:hidden;
-    background:#ffdde1;
+
+    background:linear-gradient(135deg,#ff758c,#ff7eb3,#ffb199,#fad0c4);
+
+    background-size:400% 400%;
+
+    animation:bgAnimation 15s ease infinite;
+
+    overflow-x:hidden;
+
+    overflow-y:auto;
+
     color:#fff;
+
+    min-height:100vh;
+
 }
 
-/* ==========================
-   BACKGROUND
-========================== */
+/* Background Animation */
+
+@keyframes bgAnimation{
+
+    0%{
+        background-position:0% 50%;
+    }
+
+    50%{
+        background-position:100% 50%;
+    }
+
+    100%{
+        background-position:0% 50%;
+    }
+
+}
+
+/* Background Layer */
 
 .background{
-    position:fixed;
-    width:100%;
-    height:100%;
-    background:linear-gradient(135deg,#ff758c,#ff7eb3,#ffb199,#fad0c4);
-    background-size:400% 400%;
-    animation:bgMove 15s ease infinite;
-    z-index:-5;
-}
 
-@keyframes bgMove{
-    0%{background-position:0% 50%;}
-    50%{background-position:100% 50%;}
-    100%{background-position:0% 50%;}
+    position:fixed;
+
+    inset:0;
+
+    z-index:-5;
+
 }
 
 /* ==========================
@@ -39,71 +70,123 @@ body{
 ========================== */
 
 .page{
+
     position:absolute;
+
     inset:0;
+
     display:none;
-    justify-content:center;
-    align-items:center;
+
     flex-direction:column;
-    padding:30px;
+
+    justify-content:center;
+
+    align-items:center;
+
+    padding:40px 20px;
+
     text-align:center;
+
+    overflow-y:auto;
+
+    animation:fadeIn .8s ease;
+
 }
 
 .page.active{
+
     display:flex;
+
+}
+
+/* Fade */
+
+@keyframes fadeIn{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(25px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
 }
 
 /* ==========================
-   TYPOGRAPHY
+   HEADINGS
 ========================== */
 
 .title{
+
     font-size:60px;
-    margin-bottom:20px;
-    animation:pop 1s ease;
+
+    margin-bottom:15px;
+
+    text-shadow:0 5px 20px rgba(0,0,0,.25);
+
 }
 
 .name{
-    font-size:36px;
+
+    font-size:34px;
+
     margin-bottom:15px;
+
 }
 
 .subtitle{
-    font-size:20px;
-    opacity:.9;
-    margin-bottom:40px;
-}
 
-@keyframes pop{
-    from{
-        transform:scale(.5);
-        opacity:0;
-    }
-    to{
-        transform:scale(1);
-        opacity:1;
-    }
+    font-size:20px;
+
+    margin-bottom:35px;
+
+    opacity:.9;
+
 }
 
 /* ==========================
-   BUTTON
+   BUTTONS
 ========================== */
 
 .btn{
-    padding:15px 40px;
+
+    padding:15px 35px;
+
     border:none;
-    border-radius:40px;
+
+    border-radius:50px;
+
+    background:#ff2d75;
+
+    color:#fff;
+
     cursor:pointer;
+
     font-size:18px;
-    color:white;
-    background:#ff4081;
+
+    font-weight:600;
+
     transition:.35s;
-    box-shadow:0 10px 25px rgba(0,0,0,.25);
+
+    box-shadow:0 12px 30px rgba(0,0,0,.25);
+
 }
 
 .btn:hover{
+
     transform:translateY(-5px);
-    background:#ff1d6f;
+
+    background:#ff0d63;
+
 }
 
 /* ==========================
@@ -113,78 +196,89 @@ body{
 .card,
 .final-card{
 
-    width:80%;
+    width:90%;
+
     max-width:700px;
 
-    background:rgba(255,255,255,.15);
-
-    backdrop-filter:blur(15px);
+    padding:35px;
 
     border-radius:25px;
 
-    padding:40px;
+    background:rgba(255,255,255,.18);
+
+    backdrop-filter:blur(15px);
 
     border:1px solid rgba(255,255,255,.3);
 
-    box-shadow:0 15px 35px rgba(0,0,0,.25);
+    box-shadow:0 15px 40px rgba(0,0,0,.25);
 
 }
 
 .card h1,
 .final-card h1{
 
-    margin-bottom:25px;
+    margin-bottom:20px;
+
 }
 
 .card p,
 .final-card p{
 
     line-height:1.8;
+
     font-size:18px;
+
 }
 
-/* ==========================
-   TYPING
-========================== */
+/* Typing */
 
 #typingText{
 
     min-height:180px;
-    font-size:22px;
-}
 
-/* ==========================
+    font-size:20px;
+
+    white-space:pre-wrap;
+
+}
+/* ==========================================
+   PART 2
    BALLOONS
-========================== */
+========================================== */
 
 .balloons{
 
     position:fixed;
+
     inset:0;
+
     pointer-events:none;
+
+    overflow:hidden;
+
 }
 
 .balloon{
 
     position:absolute;
-    bottom:-200px;
 
     width:60px;
+
     height:80px;
 
     border-radius:50%;
 
-    animation:float 12s linear infinite;
+    bottom:-120px;
+
+    animation:floatUp 12s linear infinite;
 
 }
 
-.balloon::after{
+.balloon::before{
 
     content:"";
 
     position:absolute;
-
-    left:50%;
 
     width:2px;
 
@@ -192,60 +286,38 @@ body{
 
     background:white;
 
+    left:50%;
+
     top:80px;
+
 }
 
-.b1{
-    background:#ff1744;
-    left:5%;
-    animation-delay:0s;
-}
+.b1{left:5%;background:#ff1744;animation-delay:0s;}
+.b2{left:20%;background:#00e5ff;animation-delay:2s;}
+.b3{left:38%;background:#ffeb3b;animation-delay:5s;}
+.b4{left:58%;background:#4caf50;animation-delay:7s;}
+.b5{left:78%;background:#ff9800;animation-delay:3s;}
+.b6{left:92%;background:#e040fb;animation-delay:9s;}
 
-.b2{
-    background:#00e5ff;
-    left:20%;
-    animation-delay:2s;
-}
-
-.b3{
-    background:#ffeb3b;
-    left:40%;
-    animation-delay:4s;
-}
-
-.b4{
-    background:#4caf50;
-    left:60%;
-    animation-delay:6s;
-}
-
-.b5{
-    background:#ff9100;
-    left:80%;
-    animation-delay:3s;
-}
-
-.b6{
-    background:#e040fb;
-    left:92%;
-    animation-delay:8s;
-}
-
-@keyframes float{
+@keyframes floatUp{
 
     0%{
+
         transform:translateY(0);
+
     }
 
     100%{
+
         transform:translateY(-130vh);
+
     }
 
 }
 
-/* ==========================
+/* ==========================================
    CAKE
-========================== */
+========================================== */
 
 .cake-area{
 
@@ -258,9 +330,24 @@ body{
     position:relative;
 
     width:220px;
+
     height:180px;
 
     cursor:pointer;
+
+    filter:drop-shadow(0 0 20px gold);
+
+    animation:cakeGlow 2s infinite;
+
+}
+
+@keyframes cakeGlow{
+
+    50%{
+
+        filter:drop-shadow(0 0 40px yellow);
+
+    }
 
 }
 
@@ -272,31 +359,31 @@ body{
 
     height:55px;
 
-    border-radius:15px;
+    border-radius:18px;
 
 }
 
 .top{
 
-    top:0;
+    background:#ffc1d9;
 
-    background:#ffb6c1;
+    top:0;
 
 }
 
 .middle{
 
-    top:55px;
+    background:#ff8fb8;
 
-    background:#ff80ab;
+    top:55px;
 
 }
 
 .bottom{
 
-    top:110px;
-
     background:#f06292;
+
+    top:110px;
 
 }
 
@@ -332,36 +419,41 @@ body{
 
     top:-18px;
 
-    animation:flicker .4s infinite alternate;
+    animation:flicker .5s infinite alternate;
+
 }
 
 @keyframes flicker{
 
     from{
+
         transform:scale(1);
+
     }
 
     to{
-        transform:scale(.8);
+
+        transform:scale(.75);
+
     }
 
 }
 
-/* ==========================
+/* ==========================================
    GALLERY
-========================== */
+========================================== */
 
 .gallery{
 
+    width:95%;
+
+    max-width:950px;
+
     display:grid;
 
-    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
 
     gap:20px;
-
-    width:90%;
-
-    max-width:900px;
 
     margin:30px auto;
 
@@ -371,23 +463,35 @@ body{
 
     width:100%;
 
-    border-radius:20px;
+    height:250px;
+
+    object-fit:cover;
+
+    border-radius:18px;
 
     transition:.4s;
 
-    box-shadow:0 10px 25px rgba(0,0,0,.3);
+    box-shadow:0 10px 30px rgba(0,0,0,.25);
 
 }
 
 .gallery img:hover{
 
-    transform:scale(1.08);
+    transform:scale(1.05);
 
 }
 
-/* ==========================
-   GIFT BOX
-========================== */
+.nextBtn3{
+
+    margin-top:35px;
+
+    margin-bottom:50px;
+
+}
+
+/* ==========================================
+   GIFT
+========================================== */
 
 .gift-box{
 
@@ -397,9 +501,9 @@ body{
 
     height:180px;
 
-    margin-top:50px;
-
     cursor:pointer;
+
+    margin-top:50px;
 
 }
 
@@ -415,7 +519,7 @@ body{
 
     background:#ff4081;
 
-    border-radius:10px;
+    border-radius:12px;
 
 }
 
@@ -427,13 +531,13 @@ body{
 
     height:40px;
 
-    top:25px;
+    background:#ec407a;
 
     left:-5px;
 
-    background:#ec407a;
+    top:25px;
 
-    border-radius:10px;
+    border-radius:12px;
 
     transition:.8s;
 
@@ -461,9 +565,9 @@ body{
 
 }
 
-/* ==========================
+/* ==========================================
    MUSIC BUTTON
-========================== */
+========================================== */
 
 .music-btn{
 
@@ -477,9 +581,9 @@ body{
 
     height:60px;
 
-    border-radius:50%;
-
     border:none;
+
+    border-radius:50%;
 
     background:#ff4081;
 
@@ -489,15 +593,61 @@ body{
 
     cursor:pointer;
 
-    box-shadow:0 10px 25px rgba(0,0,0,.3);
+    box-shadow:0 10px 30px rgba(0,0,0,.25);
 
     z-index:999;
 
 }
+/* ==========================================
+   PART 3
+   FINAL PAGE
+========================================== */
 
-/* ==========================
+.final-card{
+
+    animation:zoomIn 1s ease;
+
+}
+
+.final-card h1{
+
+    font-size:42px;
+
+    margin-bottom:25px;
+
+}
+
+.final-card h2{
+
+    margin-top:30px;
+
+    color:#fff;
+
+}
+
+@keyframes zoomIn{
+
+    from{
+
+        opacity:0;
+
+        transform:scale(.7);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:scale(1);
+
+    }
+
+}
+
+/* ==========================================
    CONFETTI
-========================== */
+========================================== */
 
 #confetti{
 
@@ -505,40 +655,109 @@ body{
 
     inset:0;
 
+    width:100%;
+
+    height:100%;
+
     pointer-events:none;
+
+    z-index:100;
 
 }
 
-/* ==========================
-   RESPONSIVE
-========================== */
+/* ==========================================
+   SCROLLBAR
+========================================== */
 
-@media(max-width:768px){
+::-webkit-scrollbar{
+
+    width:10px;
+
+}
+
+::-webkit-scrollbar-track{
+
+    background:#ffe3ef;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:#ff4d88;
+
+    border-radius:20px;
+
+}
+
+::-webkit-scrollbar-thumb:hover{
+
+    background:#ff1d6f;
+
+}
+
+/* ==========================================
+   SMOOTH SCROLL
+========================================== */
+
+html{
+
+    scroll-behavior:smooth;
+
+}
+
+/* ==========================================
+   ANIMATIONS
+========================================== */
+
+.fade{
+
+    animation:fadeIn .8s ease;
+
+}
+
+.bounce{
+
+    animation:bounce 2s infinite;
+
+}
+
+@keyframes bounce{
+
+    0%{
+
+        transform:translateY(0);
+
+    }
+
+    50%{
+
+        transform:translateY(-10px);
+
+    }
+
+    100%{
+
+        transform:translateY(0);
+
+    }
+
+}
+
+/* ==========================================
+   MOBILE
+========================================== */
+
+@media(max-width:992px){
 
 .title{
 
-font-size:38px;
+font-size:48px;
 
 }
 
 .name{
 
-font-size:28px;
-
-}
-
-.subtitle{
-
-font-size:17px;
-
-}
-
-.card,
-.final-card{
-
-width:95%;
-
-padding:25px;
+font-size:30px;
 
 }
 
@@ -548,29 +767,106 @@ grid-template-columns:repeat(2,1fr);
 
 }
 
-.cake{
+.card,
+.final-card{
 
-transform:scale(.8);
+width:95%;
+
+padding:30px;
 
 }
 
-.btn{
+}
 
-padding:12px 28px;
+/* ==========================================
+   TABLET
+========================================== */
+
+@media(max-width:768px){
+
+.page{
+
+padding:30px 15px;
+
+justify-content:flex-start;
+
+}
+
+.title{
+
+font-size:36px;
+
+}
+
+.name{
+
+font-size:24px;
+
+}
+
+.subtitle{
 
 font-size:16px;
 
 }
 
+.card,
+.final-card{
+
+padding:25px;
+
 }
 
-@media(max-width:480px){
+.card p,
+.final-card p{
+
+font-size:16px;
+
+}
 
 .gallery{
 
 grid-template-columns:1fr;
 
+gap:18px;
+
 }
+
+.gallery img{
+
+height:220px;
+
+}
+
+.btn{
+
+font-size:16px;
+
+padding:14px 28px;
+
+margin-top:25px;
+
+}
+
+.nextBtn3{
+
+margin-bottom:80px;
+
+}
+
+.cake{
+
+transform:scale(.85);
+
+}
+
+}
+
+/* ==========================================
+   SMALL PHONES
+========================================== */
+
+@media(max-width:480px){
 
 .title{
 
@@ -590,4 +886,198 @@ font-size:15px;
 
 }
 
+.gallery img{
+
+height:200px;
+
 }
+
+.music-btn{
+
+width:55px;
+
+height:55px;
+
+font-size:20px;
+
+right:15px;
+
+bottom:15px;
+
+}
+
+.final-card h1{
+
+font-size:30px;
+
+}
+
+.final-card p{
+
+font-size:15px;
+
+}
+
+}
+
+/* ==========================================
+   END OF PART 3
+========================================== */
+/* ==========================================
+   PART 4
+   FINAL FIXES
+========================================== */
+
+/* Gallery Title */
+
+#gallery h1{
+
+    margin-top:20px;
+
+    margin-bottom:20px;
+
+    font-size:42px;
+
+}
+
+/* Gallery Page */
+
+#gallery{
+
+    justify-content:flex-start;
+
+    padding-top:40px;
+
+    padding-bottom:80px;
+
+}
+
+/* Make sure gallery button is visible */
+
+.nextBtn3{
+
+    display:inline-flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    width:auto;
+
+    min-width:220px;
+
+    margin:40px auto 80px;
+
+    z-index:999;
+
+}
+
+/* Final Page */
+
+#finalPage{
+
+    justify-content:center;
+
+    align-items:center;
+
+}
+
+.final-card{
+
+    max-height:85vh;
+
+    overflow-y:auto;
+
+}
+
+/* Gift Page */
+
+#giftPage{
+
+    gap:30px;
+
+}
+
+/* Welcome Page */
+
+#welcome{
+
+    gap:20px;
+
+}
+
+/* Message Page */
+
+#message{
+
+    gap:30px;
+
+}
+
+/* Cake Page */
+
+#cakePage{
+
+    gap:20px;
+
+}
+
+/* Images */
+
+img{
+
+    display:block;
+
+}
+
+/* Prevent images from overflowing */
+
+.gallery img{
+
+    object-fit:cover;
+
+}
+
+/* Better button spacing */
+
+.btn{
+
+    margin-top:20px;
+
+}
+
+/* Footer spacing */
+
+.page>*:last-child{
+
+    margin-bottom:40px;
+
+}
+
+/* Responsive */
+
+@media(max-width:768px){
+
+    #gallery{
+
+        padding-top:20px;
+
+        padding-bottom:120px;
+
+    }
+
+    .nextBtn3{
+
+        width:90%;
+
+        max-width:280px;
+
+        margin:30px auto 100px;
+
+    }
+
+}
+
+/* ==========================================
+   END
+========================================== */
