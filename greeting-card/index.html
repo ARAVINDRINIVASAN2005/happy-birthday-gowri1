@@ -1,0 +1,171 @@
+<link rel="stylesheet" href="style.css">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+
+
+
+    <!-- Background -->
+    <div class="background"></div>
+
+    <!-- Floating Balloons -->
+    <div class="balloons">
+        <span class="balloon b1"></span>
+        <span class="balloon b2"></span>
+        <span class="balloon b3"></span>
+        <span class="balloon b4"></span>
+        <span class="balloon b5"></span>
+        <span class="balloon b6"></span>
+    </div>
+
+    <!-- Welcome Screen -->
+    <section id="welcome" class="page active">
+
+        <h1 class="title">
+            🎉 Happy Birthday 🎉
+        </h1>
+
+        <h2 class="name">
+            Dear <span id="personName">Gowri</span>
+        </h2>
+
+        <p class="subtitle">
+            Today is all about celebrating you ❤️
+        </p>
+
+        <button id="startBtn" class="btn">
+            Open Surprise
+            <i class="fa-solid fa-gift"></i>
+        </button>
+
+    </section>
+
+    <!-- Message Screen -->
+    <section id="message" class="page">
+
+        <div class="card">
+
+            <h1>💌 Birthday Wishes</h1>
+
+            <p id="typingText"></p>
+
+            <button class="btn nextBtn">
+                Continue
+            </button>
+
+        </div>
+
+    </section>
+
+    <!-- Cake Screen -->
+    <section id="cakePage" class="page">
+
+        <h1>🎂 Make a Wish</h1>
+
+        <p>Click the cake to cut it.</p>
+
+        <div class="cake-area">
+
+            <div class="cake" id="cake">
+
+                <div class="candle">
+                    <div class="flame"></div>
+                </div>
+
+                <div class="layer top"></div>
+                <div class="layer middle"></div>
+                <div class="layer bottom"></div>
+
+            </div>
+
+        </div>
+
+        <button class="btn nextBtn2">
+            Celebrate 🎉
+        </button>
+
+    </section>
+
+    <!-- Gallery -->
+    <section id="gallery" class="page">
+
+        <h1>📸 Beautiful Memories</h1>
+
+        <div class="gallery">
+
+            <img src="assets/images/photo1.jpg" alt="">
+            <img src="assets/images/photo2.jpg" alt="">
+            <img src="assets/images/photo3.jpg" alt="">
+            <img src="assets/images/photo4.jpg" alt="">
+            <img src="assets/images/photo5.jpg" alt="">
+            <img src="assets/images/photo6.jpg" alt="">
+
+        </div>
+
+        <button class="btn nextBtn3">
+            Final Surprise
+        </button>
+
+    </section>
+
+    <!-- Gift -->
+    <section id="giftPage" class="page">
+
+        <h1>🎁 Open Your Gift</h1>
+
+        <div class="gift-box" id="giftBox">
+
+            <div class="lid"></div>
+
+            <div class="box"></div>
+
+        </div>
+
+        <h2 class="hidden-message">
+            ❤️ You are Amazing ❤️
+        </h2>
+
+    </section>
+
+    <!-- Final -->
+    <section id="finalPage" class="page">
+
+        <div class="final-card">
+
+            <h1>
+             🎊 Happy Birthday Gowri 🎊
+            </h1>
+
+            <p>
+
+              Wishing you the most wonderful birthday filled with joy that knows no bounds! May every single moment of this special day bring a smile to your face and warmth to your heart. Take care your yourself ,Everything will be alright. You deserve all the happiness, love, and blessings that life has to offer. Here’s to new beginnings, beautiful memories, and a year that surpasses all your expectations. Have a truly magical birthday! 🎂❤️
+
+            </p>
+
+            <h2>
+                Have an Amazing Year Ahead ❤️
+            </h2>
+
+        </div>
+
+        <canvas id="confetti"></canvas>
+
+    </section>
+
+    <!-- Music -->
+
+    <audio id="birthdayMusic" loop>
+        <source src="assets/music/birthday.mp3" type="audio/mpeg">
+    </audio>
+
+    <button id="musicBtn" class="music-btn">
+        <i class="fa-solid fa-music"></i>
+    </button>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
